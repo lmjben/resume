@@ -4,4 +4,17 @@ node_js:
   - "10"
 
 script:
-  - npm run pub
+  - npm run build
+
+deploy:
+  provider: pages
+  target-branch: gh-pages
+  skip-cleanup: true
+  local-dir: .public/
+  repo: yhlben/resume
+  email: robot@travis.com
+  name: robot
+  github-token: $REPO_TOKEN
+  keep-history: true
+  on:
+    branch: master
